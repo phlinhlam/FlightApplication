@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+<form action="#" th:action="@{/process}" th:object="${flight}" method="post">
+    <input type="hidden" th:field="*{flightNum}" />
+
+    Departure Airport: <input type="text" th:field="*{departingAirport}"/>
+    <span th:if="${#fields.hasErrors('departingAirport')}"
+          th:errors="*{departingAirport}"></span><br />
+
+    Arriving Airport: <input type="text" th:field="*{arrivingAirport}"/>
+    <span th:if="${#fields.hasErrors('arrivingAirport')}"
+          th:errors="*{arrivingAirport}"></span><br />
+
+    Type: <input type="text" th:field="*{type}"/>
+    <span th:if="${#fields.hasErrors('type')}"
+          th:errors="*{type}"></span><br />
+
+    Departure Date: <input type="text" th:field="*{dateDepart}"/>
+    <span th:if="${#fields.hasErrors('dateDepart')}"
+          th:errors="*{dateDepart}"></span><br />
+
+    Price: <input type="text" th:field="*{price}"/>
+    <span th:if="${#fields.hasErrors('price')}"
+          th:errors="*{price}"></span><br />
+
+    <input type="submit" value="Add a Flight"/>
+
+
+
+</form>
+
+
+</body>
+</html>
