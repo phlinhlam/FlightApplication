@@ -36,10 +36,10 @@ public class HomeController {
     public String processForm(@Valid Flight flight, BindingResult result)
     {
         if(result.hasErrors()){
-            return "flightForm";
+            return "list";
         }
         flightRepository.save(flight);
-        return "redirect:/";
+        return "redirect:/list";
     }
 
     @RequestMapping("/detail/{flightNum}")
@@ -59,7 +59,7 @@ public class HomeController {
     public String deleteFlight(@PathVariable("flightNum") long flightNum)
     {
         flightRepository.deleteById(flightNum);
-        return "redirect:/";
+        return "redirect:/list";
     }
 
     @PostMapping("/searchFlight")
@@ -68,4 +68,5 @@ public class HomeController {
         model.addAttribute("flights", flightRepository.findByArrivingAirportContainingIgnoreCaseOrDepartingAirportContainingIgnoreCaseOrDateDepartContainingIgnoreCaseOrPriceIsContainingIgnoreCase(search, search, search, search));
         return "searchFlight";
     }
+
 }

@@ -2,16 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
     <title>Flight Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/mystyle.css}">
 </head>
 <body>
 <div th:replace="base :: navlinks"></div>
+<div class="container" style="color: lightpink; margin-top: 5px">
+    <div class="jumbotron">
+        <h1 style="color: #e6a5ff">Flight Management</h1>
+
 <form action="#" th:action="@{/process}" th:object="${flight}" method="post">
     <input type="hidden" th:field="*{flightNum}" />
 
-    Departure Airport: <input type="text" th:field="*{departingAirport}"/>
+    Departure Airport: <input type="text" class="form-control" th:field="*{departingAirport}"/>
     <span th:if="${#fields.hasErrors('departingAirport')}"
           th:errors="*{departingAirport}"></span><br />
 
@@ -33,10 +39,9 @@
 
     <input type="submit" value="Add a Flight"/>
 
-
-
 </form>
-
+    </div>
+</div>
 
 </body>
 </html>
