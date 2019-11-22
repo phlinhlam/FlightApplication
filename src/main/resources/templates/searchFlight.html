@@ -10,15 +10,17 @@
 </head>
 <body>
 <div th:replace="base :: navlinks"></div>
-<h1>Flight Lists</h1>
+<div class="container" style="color: #63737d; size: 20px; margin-top: 10px">
+    <div class="jumbotron">
+<h1 style="color: #4b8f95">Search Result</h1>
 <!--this a tag add a link to allow user to add a flight
 <a href="/add">Add a Flight</a>-->
-<table> <!--to make the input bar rounded-->
+<table>
     <tr>
         <th>Flight Number</th>
         <th>Departure Airport</th>
         <th>Arriving Airport</th>
-        <th>Type</th>
+        <th>Fare Type</th>
         <th>Departure Date</th>
         <th>Price</th>
     </tr>
@@ -36,5 +38,7 @@
         </td>
     </tr>
 </table>
+</div>
+</div>
 </body>
 </html>

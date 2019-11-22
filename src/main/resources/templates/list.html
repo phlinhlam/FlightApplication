@@ -6,12 +6,16 @@
     <title>List Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/mystyle.css}">
 </head>
 <body>
 <div th:replace="base :: navlinks"></div>
-<h1>List of Available Flights</h1>
-<a href="/add">Add a Flight</a>
+
+<div class="container" style="color: #63737d; margin-top: 10px">
+    <div class="jumbotron">
+        <h1 style="color: #4b8f95">Flight Management</h1>
+        <br />
+
 <table> <!--to make the input bar rounded-->
     <tr>
         <th>Flight Number</th>
@@ -22,12 +26,12 @@
         <th>Price</th>
     </tr>
     <tr th:each="flight : ${flights}">
-        <td th:text="${flight.flightNum}"></td>
-        <td th:text="${flight.departingAirport}"></td>
-        <td th:text="${flight.arrivingAirport}"></td>
-        <td th:text="${flight.type}"></td>
-        <td th:text="${flight.dateDepart}"></td>
-        <td th:text="${flight.price}"></td>
+        <td style="text-align: center" th:text="${flight.flightNum}"></td>
+        <td style="text-align: center" th:text="${flight.departingAirport}"></td>
+        <td style="text-align: center" th:text="${flight.arrivingAirport}"></td>
+        <td style="text-align: center" th:text="${flight.type}"></td>
+        <td style="text-align: center" th:text="${flight.dateDepart}"></td>
+        <td style="text-align: center" th:text="${flight.price}"></td>
         <td>
             <a th:href="@{/update/{flightNum}(flightNum=${flight.flightNum})}">Update</a>
             <a th:href="@{/detail/{flightNum}(flightNum=${flight.flightNum})}">Detail</a>
@@ -35,5 +39,10 @@
         </td>
     </tr>
 </table>
+        <br />
+        <br />
+        <a href="/add" class="btn btn-info" role="button">Add a Flight</a>
+    </div>
+</div>
 </body>
 </html>

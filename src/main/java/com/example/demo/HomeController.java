@@ -14,6 +14,13 @@ public class HomeController {
     @Autowired
     FlightRepository flightRepository;
 
+
+    @RequestMapping("/test")
+    public String welcomepage()
+    {
+        return "welcomePage";
+    }
+
     @RequestMapping("/")
     public String homepage()
     {

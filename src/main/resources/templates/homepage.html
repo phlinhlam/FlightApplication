@@ -8,12 +8,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/mystyle.css}">
+    <style>
+        body {
+            background-image: url('images/headerbg.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+    </style>
 </head>
 <body>
-
 <div th:replace="base :: navlinks"></div>
 
-<div th:replace="base :: bodylayout"></div>
-<div th:replace="base::footer"></div>
+
+
 </body>
 </html>
